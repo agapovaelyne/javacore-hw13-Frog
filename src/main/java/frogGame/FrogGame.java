@@ -52,7 +52,7 @@ public abstract class FrogGame {
         printOut(getCommandsList());
 
         while (true) {
-            printOut("Введите команду для лягушки: ");
+            printOut("\nВведите команду для лягушки: ");
             String command = scanner.nextLine().replace(" ", "");
 
             if (command.equals(exitCommandText)) {
@@ -94,7 +94,7 @@ public abstract class FrogGame {
                             printOut("Прыжок не сделан! ");
                             continue;
                         }
-                        cmd = FrogCommands.jumpCommand(frog, n);
+                        cmd = n > 0 ? FrogCommands.jumpRightCommand(frog, n) : FrogCommands.jumpLeftCommand(frog, Math.abs(n));
                     } catch (NumberFormatException e) {
                         printOut(String.format("Некорректный формат команды! %s\n", Frog.getFrogBlackAndWhiteSmallPicture()));
                         continue;
